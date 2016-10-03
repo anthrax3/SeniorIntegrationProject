@@ -1,0 +1,6 @@
+MySQL 5.7
+MySQL Connector .NET
+Visual Studio 2016 Community Edition
+MySQL Workbench 6.3
+ASP.NET MVC
+Bootstrap

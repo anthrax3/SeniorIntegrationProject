@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1 class="text-center">Welcome</h1>
+    <p class="lead">
+        This application is designed to test the relative security of different web frameworks. It supports four 
+        different frameworks.
+    </p>
+    <ul>
+        <li>C#: ASP.NET MVC</li>
+        <li>Java: J2EE</li>
+        <li>PHP: WordPress</li>
+        <li>Ruby: Ruby on Rails</li>
+    </ul>
+    <p>
+        All four applications reference the same MySQL 5.7 database. That database stores mock login and credit card information.
+        Attacks that can be tested in this application include SQL injection and Cross-site scripting attacks. There is also a
+        switch for high and low security. High security sets the backend code to be designed based on security recommendations made
+        by the provider of the selected framework. Low security sets the backend code to be poorly designed compared to the provided
+        security standards.
+    </p>
+</div>
+
+<div class="row text-center">
+    <h2>Get Started</h2>
+    <p class="text-left">
+        To begin using this application, start by hitting the button below to generate the database to be used. Once the datbase
+        is generated, you will be taken to the home page of the application where you can begin penetration testing.
+    </p>
+    <button class="btn btn-default" type="button" id="addressSearch" onclick="location.href='@Url.Action("GenerateDatabase", "Home")'">Generate Database</button>
+    </div>
