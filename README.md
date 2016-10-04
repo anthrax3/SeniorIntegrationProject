@@ -1,2 +1,0 @@
-# SeniorIntegrationProject
-This is the project and paper that I did to fulfill Covenant College's Senior Integration Project for Computer Science. It is the equivalent of a Bachelor's Thesis in other programs. This project is an example web-based front-end to a database storing credit card information. It supports 4 different backends; C#, Java, PHP, and Ruby. It is designed for penetration testing to compare the relative security of different web frameworks
