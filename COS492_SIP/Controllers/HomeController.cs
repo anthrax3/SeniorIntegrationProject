@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using COS492_SIP.DAL;
 
 namespace COS492_SIP.Controllers
 {
@@ -13,18 +14,35 @@ namespace COS492_SIP.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Setup()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult AddCard()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
+        }
+
+        public ActionResult AdminPanel()
+        {
+            return View();
+        }
+
+        public ActionResult Settings()
+        {
+            return View();
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        public void GenerateDatabase()
+        {
+            //MyDbContext db = new MyDbContext();
+            //Index();
         }
     }
 }

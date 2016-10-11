@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using COS492_SIP.DAL;
 
 namespace COS492_SIP
 {
@@ -12,6 +13,8 @@ namespace COS492_SIP
     {
         protected void Application_Start()
         {
+            System.Data.Entity.Database.SetInitializer<MyDbContext>(new MyDbInitializer());
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

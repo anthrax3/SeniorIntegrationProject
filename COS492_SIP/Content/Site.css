@@ -22,3 +22,7 @@ select,
 textarea {
     max-width: 280px;
 }
+
+#xssBox, #loginBox {
+    margin: 1% !important;
+}
