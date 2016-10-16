@@ -13,7 +13,9 @@ namespace COS492_SIP
     {
         protected void Application_Start()
         {
-            System.Data.Entity.Database.SetInitializer<MyDbContext>(new MyDbInitializer());
+            //System.Data.Entity.Database.SetInitializer<MyDbContext>(new MyDbInitializer());
+            //var db = new MyDbContext();
+            //db.Database.Initialize(true);
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

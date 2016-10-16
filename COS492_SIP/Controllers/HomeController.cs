@@ -39,10 +39,12 @@ namespace COS492_SIP.Controllers
             return View();
         }
 
-        public void GenerateDatabase()
+        public ActionResult GenerateDatabase()
         {
-            //MyDbContext db = new MyDbContext();
-            //Index();
+            System.Data.Entity.Database.SetInitializer<MyDbContext>(new MyDbInitializer());
+            var db = new MyDbContext();
+            db.Database.Initialize(true);
+            return RedirectToAction("Login");
         }
     }
 }

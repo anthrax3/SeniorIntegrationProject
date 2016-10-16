@@ -18,6 +18,9 @@ D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\COS492_SIP\bin\E
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\COS492_SIP\bin\EntityFramework.SqlServer.dll
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\COS492_SIP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\COS492_SIP\bin\Microsoft.Web.Infrastructure.dll
+D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\COS492_SIP\bin\MySql.Data.dll
+D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\COS492_SIP\bin\MySql.Data.Entity.EF6.dll
+D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\COS492_SIP\bin\MySql.Web.dll
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\COS492_SIP\bin\Newtonsoft.Json.dll
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\COS492_SIP\bin\System.Web.Helpers.dll
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\COS492_SIP\bin\System.Web.Mvc.dll
@@ -41,4 +44,3 @@ D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\COS492_SIP\bin\A
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\COS492_SIP\bin\Newtonsoft.Json.xml
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\COS492_SIP\obj\Debug\COS492_SIP.dll
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\COS492_SIP\obj\Debug\COS492_SIP.pdb
-D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\COS492_SIP\obj\Debug\COS492_SIP.csprojResolveAssemblyReference.cache
