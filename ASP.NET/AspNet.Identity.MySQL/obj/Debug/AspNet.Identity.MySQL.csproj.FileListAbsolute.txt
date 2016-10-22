@@ -1,0 +1,8 @@
+D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\ASP.NET\AspNet.Identity.MySQL\bin\Debug\AspNet.Identity.MySQL.dll.config
+D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\ASP.NET\AspNet.Identity.MySQL\bin\Debug\AspNet.Identity.MySQL.dll
+D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\ASP.NET\AspNet.Identity.MySQL\bin\Debug\AspNet.Identity.MySQL.pdb
+D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\ASP.NET\AspNet.Identity.MySQL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\ASP.NET\AspNet.Identity.MySQL\bin\Debug\MySql.Data.dll
+D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\ASP.NET\AspNet.Identity.MySQL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\ASP.NET\AspNet.Identity.MySQL\obj\Debug\AspNet.Identity.MySQL.dll
+D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\ASP.NET\AspNet.Identity.MySQL\obj\Debug\AspNet.Identity.MySQL.pdb
