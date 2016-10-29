@@ -12,5 +12,10 @@ namespace VDNA.Controllers
         {
             return View();
         }
+
+        public ActionResult GenerateDatabase()
+        {
+            return RedirectToAction("Register", "Account");
+        }
     }
 }
