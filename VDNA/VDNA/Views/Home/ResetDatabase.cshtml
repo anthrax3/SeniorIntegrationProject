@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "ResetDatabase";
+}
+
+<div class="jumbotron">
+    <h1 class="text-center">Reset Database</h1>
+    <p class="lead">
+        This will reset the database to its original state. All current data including accounts and information associated with them will
+        be cleared. The database will then be repopulated with the roles and admin account. You will then be taken to the registration
+        page to create a new user account.
+    </p>
+    <div class="row text-center">
+        <button class="btn btn-default" type="button" id="setupDB" onclick="location.href='@Url.Action("GenerateDatabase", "Home")'">Reset Database</button>
+    </div>
+</div>
+
+

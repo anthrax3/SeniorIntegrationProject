@@ -64,6 +64,6 @@ D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\bin\Mi
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\bin\Microsoft.Owin.Security.Google.xml
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\bin\Microsoft.Owin.Security.Twitter.xml
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\obj\Debug\VDNA.csprojResolveAssemblyReference.cache
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\obj\Debug\VDNA.dll
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\obj\Debug\VDNA.pdb
+D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\obj\Debug\VDNA.csprojResolveAssemblyReference.cache

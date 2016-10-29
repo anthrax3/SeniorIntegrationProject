@@ -21,7 +21,17 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <!--<li>@Html.ActionLink("Setup", "Setup", "Home")</li>-->
+                    <li>@Html.ActionLink("Instructions", "Instructions", "Home")</li>
+                    <li>@Html.ActionLink("Reset Database", "ResetDatabase", "Home")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Tests <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("XSS Attack", "XSSAttack", "Home")</li>
+                            <li>@Html.ActionLink("SQL Injection", "SQLInject", "Home")</li>
+                            <li>@Html.ActionLink("Brute Force", "BruteForce", "Home")</li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Settings", "Settings", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
