@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1 class="text-center">Welcome</h1>
+    <p class="lead">
+        This application is designed for penetration testing of the ASP.NET Framework. It's goal is to do for the .NET world
+        what the Damn Vulnerable Web App does for the PHP/MySQL world. 
+    </p>
+    <p>
+        With a Microsoft SQL Server on the backend and ASP.NET on the front end, this application emulates the most common configuration
+        for implementations of the .NET Framework in production applications.
+    </p>
+    <p>
+        <h2>Prerequisites</h2>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+        </ul>
+    </p>
+    <div class="row text-center">
+        <h2>Start by Generating the Database</h2>
+        <button class="btn btn-default" type="button" id="setupDB" onclick="location.href='@Url.Action("Index", "Home")'">Generate Database</button>
+    </div>
+</div>
+
