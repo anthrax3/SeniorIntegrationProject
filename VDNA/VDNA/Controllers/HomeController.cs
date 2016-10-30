@@ -71,7 +71,9 @@ namespace VDNA.Controllers
             adminUser.PasswordHash = hasher.HashPassword("mockingjay");
             adminUser.UserName = "admin@test.com";
             UserManager.Create(adminUser);
-
+            //Giving it admin privliges
+            var currentUser = UserManager.FindByName(adminUser.UserName);
+            UserManager.AddToRole(currentUser.Id, "Admin");
             return RedirectToAction("Register", "Account");
         }
     }
