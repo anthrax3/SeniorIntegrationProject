@@ -76,5 +76,10 @@ namespace VDNA.Controllers
             UserManager.AddToRole(currentUser.Id, "Admin");
             return RedirectToAction("Register", "Account");
         }
+
+        public void XSSDemo()
+        {
+            
+        }
     }
 }
