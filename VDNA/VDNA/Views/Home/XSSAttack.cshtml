@@ -12,9 +12,18 @@
     all accounts with the entered last name and echo them back to the screen.
 </p>
 
-Last Name:<br>
-<input type="text" id="nameToFind"><br /><br />
-<button class="btn btn-default" id="xssSubmit">Submit</button>
 
+@using (Html.BeginForm("XSSDemo", "HomeController", FormMethod.Post))
+{
+    <form>
+        <div>
+            Last Name:<br>
+            <input type="text" id="nameToFind">
+
+            <input type="button" id="submitId" value="submit" />
+
+        </div>
+    </form>
+}
 <h3 id="resultsHeader"></h3>
 <p id="results"></p>

@@ -77,9 +77,10 @@ namespace VDNA.Controllers
             return RedirectToAction("Register", "Account");
         }
 
+        [HttpPost]
         public void XSSDemo()
         {
-            
+            Console.WriteLine();
         }
     }
 }
