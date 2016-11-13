@@ -1,4 +1,9 @@
-﻿
+﻿@{
+    ViewBag.Title = "XSSAttack";
+}
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+<script type="text/javascript
+
 @{
     ViewBag.Title = "XSSAttack";
 }
@@ -8,7 +13,8 @@
 <h2>Name Search</h2>
 <h3>Attack demoed: XSS (Reflected)</h3>
 <h4>Instructions</h4>
-<p>This form simulates a name search field. Entering a name will search the backend database for
+<p>
+    This form simulates a name search field. Entering a name will search the backend database for
     all accounts with the entered last name and echo them back to the screen.
 </p>
 
@@ -16,12 +22,23 @@
 @using (Html.BeginForm("XSSDemo", "Home", FormMethod.Post))
 {
     <div>
-        Last Name:<br>
+        Email:
         <input type="text" id="nameToFind" name="nameToFind">
 
-        <input type="button" id="submitId" name="submit" value="submit" />
+        <input type="submit" id="submitId" value="Search" />
 
     </div>
+    <br />
+    <br />
+
+    if (TempData["XSSName"] != null)
+    {
+        <h2> Results for @Html.Raw(TempData["XSSName"]) </h2>
+        foreach (var r in (string[])TempData["XSSSearch"])
+        {
+            @Html.Raw(r);
+        }
+    }
 }
 <h3 id="resultsHeader"></h3>
 <p id="results"></p>

@@ -78,9 +78,24 @@ namespace VDNA.Controllers
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult XSSDemo(string nameToFind)
         {
-            return RedirectToAction("Register", "Account");
+            TempData["XSSName"] = nameToFind;
+            using (var context = new ApplicationDbContext())
+            {
+                var results = from u in context.Users
+                              where u.Email.Contains(nameToFind)
+                              select u;
+                var resultsArr = results.ToArray();
+                List<string> namesFound = new List<string>();
+                foreach(var r in resultsArr)
+                {
+                    namesFound.Add(r.UserName);
+                }
+                TempData["XSSSearch"] = namesFound.ToArray();
+            }
+            return RedirectToAction("XSSAttack", "Home");
         }
     }
 }
