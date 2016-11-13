@@ -13,17 +13,15 @@
 </p>
 
 
-@using (Html.BeginForm("XSSDemo", "HomeController", FormMethod.Post))
+@using (Html.BeginForm("XSSDemo", "Home", FormMethod.Post))
 {
-    <form>
-        <div>
-            Last Name:<br>
-            <input type="text" id="nameToFind">
+    <div>
+        Last Name:<br>
+        <input type="text" id="nameToFind" name="nameToFind">
 
-            <input type="button" id="submitId" value="submit" />
+        <input type="button" id="submitId" name="submit" value="submit" />
 
-        </div>
-    </form>
+    </div>
 }
 <h3 id="resultsHeader"></h3>
 <p id="results"></p>
