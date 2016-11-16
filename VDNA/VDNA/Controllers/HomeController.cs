@@ -77,6 +77,11 @@ namespace VDNA.Controllers
             return RedirectToAction("Register", "Account");
         }
 
+        public static List<CreditCard> GetCardsByUser(string userName)
+        {
+            return new List<CreditCard>();
+        }
+
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult XSSDemo(string nameToFind)
@@ -89,13 +94,20 @@ namespace VDNA.Controllers
                               select u;
                 var resultsArr = results.ToArray();
                 List<string> namesFound = new List<string>();
-                foreach(var r in resultsArr)
+                foreach (var r in resultsArr)
                 {
                     namesFound.Add(r.UserName);
                 }
                 TempData["XSSSearch"] = namesFound.ToArray();
             }
             return RedirectToAction("XSSAttack", "Home");
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult SQLIDemo(string cardNumber, string CVV, string expirationDate)
+        {
+            return RedirectToAction("SQLInject", "Home");
         }
     }
 }

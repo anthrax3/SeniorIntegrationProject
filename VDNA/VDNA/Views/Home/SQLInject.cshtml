@@ -1,7 +1,46 @@
-﻿
+﻿@using Microsoft.AspNet.Identity
+@using System.Security.Claims;
+@using VDNA.Controllers;
+
 @{
     ViewBag.Title = "SQLInject";
 }
 
-<h2>SQLInject</h2>
+<h2>Credit Card Add</h2>
+<h3>Attack demoed: SQL Injection</h3>
+<h4>Instructions</h4>
+<p>
+    This form simulates adding data to a database. The user will fill out credit card information to store
+    in the database and submit it.
+</p>
 
+@using (Html.BeginForm("SQLIDemo", "Home", FormMethod.Post))
+{
+
+    <div>
+        <label>Card Number: </label><input type="text" id="cardNumber" name="cardNumber"><br /><br />
+        <label>CVV: </label> <input type="text" id="CVV" name="CVV"><br /><br />
+        <label>Expiration Date (MM/DD/YYYY): </label> <input type="text" id="expirationDate" name="expirationDate"><br /><br />
+
+        <input type="submit" id="submitId" value="Submit" />
+
+    </div>
+    <br />
+    <br />
+}
+<h2> Cards Stored for @User.Identity.GetUserName() </h2>
+<table class="table-bordered">
+    <tr>
+        <th>Card Number</th>
+        <th>CVV</th>
+        <th>Expiration Date</th>
+    </tr>
+    @foreach (var r in HomeController.GetCardsByUser(User.Identity.GetUserName()))
+    {
+        <tr>
+            <td>@Html.Raw(r.CardNumber)</td>
+            <td>@Html.Raw(r.CVV)</td>
+            <td>@Html.Raw(r.ExpirationDate)</td>
+        </tr>
+    }
+</table>
