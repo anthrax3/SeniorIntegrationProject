@@ -77,9 +77,16 @@ namespace VDNA.Controllers
             return RedirectToAction("Register", "Account");
         }
 
-        public static List<CreditCard> GetCardsByUser(string userName)
+        public static List<CreditCard> GetCardsByUser(string user)
         {
-            return new List<CreditCard>();
+            List<CreditCard> results;
+            using (var context = new ApplicationDbContext())
+            {
+                results = (from c in context.CreditCards
+                              where c.UserName.Contains(user)
+                              select c).ToList();
+            }
+            return results;
         }
 
         [HttpPost]
@@ -107,7 +114,26 @@ namespace VDNA.Controllers
         [ValidateInput(false)]
         public ActionResult SQLIDemo(string cardNumber, string CVV, string expirationDate)
         {
+            var username = User.Identity.GetUserName();
+            using (var context = new ApplicationDbContext())
+            {
+                CreditCard cardToAdd = new CreditCard();
+                cardToAdd.UserName = username;
+                cardToAdd.CardNumber = cardNumber;
+                cardToAdd.CVV = CVV;
+                cardToAdd.ExpirationDate = parseDate(expirationDate);
+                context.CreditCards.Add(cardToAdd);
+                context.SaveChanges();
+            }
             return RedirectToAction("SQLInject", "Home");
+        }
+
+        private DateTime parseDate(string dateToParse)
+        {
+            string[] splitDate = dateToParse.Split('/');
+            int month = Convert.ToInt32(splitDate[0]);
+            int year = Convert.ToInt32(splitDate[1]);
+            return new DateTime(year, month, 1);
         }
     }
 }
