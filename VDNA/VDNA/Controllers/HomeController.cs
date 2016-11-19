@@ -40,7 +40,8 @@ namespace VDNA.Controllers
 
         public ActionResult BruteForce()
         {
-            return View();
+            HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Login", "Account");
         }
 
         public ActionResult Settings()

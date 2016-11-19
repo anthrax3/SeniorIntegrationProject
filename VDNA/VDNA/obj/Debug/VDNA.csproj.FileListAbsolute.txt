@@ -1,14 +1,14 @@
-D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\bin\roslyn\csc.exe
-D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\bin\roslyn\System.Collections.Immutable.dll
+D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\bin\roslyn\System.Reflection.Metadata.dll
+D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\bin\roslyn\VBCSCompiler.exe
+D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\bin\roslyn\csc.exe
+D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\bin\roslyn\Microsoft.CSharp.Core.targets
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\bin\roslyn\Microsoft.VisualBasic.Core.targets
-D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\bin\roslyn\System.Collections.Immutable.dll
-D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\bin\roslyn\System.Reflection.Metadata.dll
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\bin\roslyn\vbc.exe
-D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\bin\roslyn\VBCSCompiler.exe
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\bin\roslyn\VBCSCompiler.exe.config
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\bin\VDNA.dll.config
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\bin\VDNA.dll
@@ -66,4 +66,3 @@ D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\bin\Mi
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\obj\Debug\VDNA.dll
 D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\obj\Debug\VDNA.pdb
-D:\Users\Nick Gilbert\Documents\GitHub\SeniorIntegrationProject\VDNA\VDNA\obj\Debug\VDNA.csprojResolveAssemblyReference.cache

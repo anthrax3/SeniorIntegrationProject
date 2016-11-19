@@ -5,6 +5,13 @@
 }
 
 <h2>@ViewBag.Title</h2>
+<h3>Attack demoed: Brute Force</h3>
+<h4>Instructions</h4>
+<p>
+    This form lets users log into the application. Login forms can be vulnerable to brute force attacks which can let unauthorized
+    users break into accounts, especially if they already have an account's username.
+</p>
+
 <div class="row">
     <div class="col-md-8">
         <section id="loginForm">
@@ -25,14 +32,6 @@
                     <div class="col-md-10">
                         @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <div class="checkbox">
-                            @Html.CheckBoxFor(m => m.RememberMe)
-                            @Html.LabelFor(m => m.RememberMe)
-                        </div>
                     </div>
                 </div>
                 <div class="form-group">
