@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VDNA.Models;
+using System.Text.RegularExpressions;
 
 namespace VDNA.Controllers
 {
@@ -49,6 +50,28 @@ namespace VDNA.Controllers
             return View();
         }
 
+        public static string GetSecurityLevel()
+        {
+            string result;
+            using (var context = new ApplicationDbContext())
+            {
+                result = (from c in context.SecuritySettings
+                         select c.SecurityLevel).ToList().First();
+            }
+            return result;
+        }
+
+        public ActionResult UpdateSecurity(string securityLevel)
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                context.SecuritySettings.Remove(context.SecuritySettings.First());
+                context.SecuritySettings.Add(new SecuritySettings() { SecurityLevel = securityLevel });
+                context.SaveChanges();
+            }
+            return RedirectToAction("Settings");
+        }
+
         public ActionResult GenerateDatabase()
         {
             //Create Empty Database
@@ -63,6 +86,9 @@ namespace VDNA.Controllers
             // Create Admin Role
             RoleManager.Create(new IdentityRole("Admin"));
             RoleManager.Create(new IdentityRole("User"));
+
+            //Setting initial security to low
+            myDbContext.SecuritySettings.Add(new SecuritySettings() { SecurityLevel = "low" });
 
             //Creating Admin Account
             PasswordHasher hasher = new PasswordHasher();
@@ -94,6 +120,11 @@ namespace VDNA.Controllers
         [ValidateInput(false)]
         public ActionResult XSSDemo(string nameToFind)
         {
+            if(GetSecurityLevel().Equals("high"))
+            {
+                Regex r = new Regex(@"[^a-zA-Z0-9/!'?.-]");
+                nameToFind = r.Replace(nameToFind, "");
+            }
             TempData["XSSName"] = nameToFind;
             using (var context = new ApplicationDbContext())
             {
@@ -116,15 +147,29 @@ namespace VDNA.Controllers
         public ActionResult SQLIDemo(string cardNumber, string CVV, string expirationDate)
         {
             var username = User.Identity.GetUserName();
-            using (var context = new ApplicationDbContext())
+            if(GetSecurityLevel().Equals("high"))
             {
-                CreditCard cardToAdd = new CreditCard();
-                cardToAdd.UserName = username;
-                cardToAdd.CardNumber = cardNumber;
-                cardToAdd.CVV = CVV;
-                cardToAdd.ExpirationDate = parseDate(expirationDate);
-                context.CreditCards.Add(cardToAdd);
-                context.SaveChanges();
+                using (var context = new ApplicationDbContext())
+                {
+                    CreditCard cardToAdd = new CreditCard();
+                    cardToAdd.UserName = username;
+                    cardToAdd.CardNumber = cardNumber;
+                    cardToAdd.CVV = CVV;
+                    cardToAdd.ExpirationDate = parseDate(expirationDate);
+                    context.CreditCards.Add(cardToAdd);
+                    context.SaveChanges();
+                }
+            }
+            else
+            {
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
+                {
+                    conn.Open();
+                    string sql = "INSERT INTO [dbo].CreditCards([UserName], [CardNumber], [CVV], [ExpirationDate]) VALUES('" + username + "', '" + cardNumber + "', '" + CVV + "', '" + parseDateWeak(expirationDate).ToString() + "');";
+                    var command = new SqlCommand(sql, conn);
+                    command.ExecuteNonQuery();
+                    conn.Close();
+                }
             }
             return RedirectToAction("SQLInject", "Home");
         }
@@ -135,6 +180,17 @@ namespace VDNA.Controllers
             int month = Convert.ToInt32(splitDate[0]);
             int year = Convert.ToInt32(splitDate[1]);
             return new DateTime(year, month, 1);
+        }
+
+        private int parseDateWeak(string dateToParse)
+        {
+            string[] splitDate = dateToParse.Split('/');
+            string month = splitDate[0];
+            string year = splitDate[1];
+            
+            string convertedDate = year + month + "01";
+            return Convert.ToInt32(convertedDate);
+
         }
     }
 }

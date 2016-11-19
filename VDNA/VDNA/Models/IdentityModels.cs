@@ -21,6 +21,7 @@ namespace VDNA.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<CreditCard> CreditCards { get; set; }
+        public DbSet<SecuritySettings> SecuritySettings { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
