@@ -69,7 +69,30 @@ namespace VDNA.Controllers
                 context.SecuritySettings.Add(new SecuritySettings() { SecurityLevel = securityLevel });
                 context.SaveChanges();
             }
+            UpdateAdminPassword();
             return RedirectToAction("Settings");
+        }
+
+        public void UpdateAdminPassword()
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                string adminId = (from u in context.Users
+                             where u.Email.Equals("admin@test.com")
+                             select u.Id).First().ToString();
+                var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+                if(GetSecurityLevel().Equals("high"))
+                {
+                    UserManager.RemovePassword(adminId);
+                    UserManager.AddPassword(adminId, "q1S2@fXZETG9433!2");
+                }
+                else
+                {
+                    UserManager.RemovePassword(adminId);
+                    UserManager.AddPassword(adminId, "mockingjay");
+                }
+                context.SaveChanges();
+            }
         }
 
         public ActionResult GenerateDatabase()
