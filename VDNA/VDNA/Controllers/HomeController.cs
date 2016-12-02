@@ -55,8 +55,15 @@ namespace VDNA.Controllers
             string result;
             using (var context = new ApplicationDbContext())
             {
-                result = (from c in context.SecuritySettings
-                         select c.SecurityLevel).ToList().First();
+                try
+                {
+                    result = (from c in context.SecuritySettings
+                              select c.SecurityLevel).ToList().First();
+                }
+                catch(Exception)
+                {
+                    result = "not found";
+                }
             }
             return result;
         }
@@ -99,8 +106,8 @@ namespace VDNA.Controllers
         {
             //Create Empty Database
             var myDbContext = new ApplicationDbContext();
-            myDbContext.Database.Delete();
-            myDbContext.Database.Create();
+            //myDbContext.Database.Delete();
+            //myDbContext.Database.Create();
 
             //Populate tables with initial data
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(myDbContext));
@@ -178,7 +185,14 @@ namespace VDNA.Controllers
                     cardToAdd.UserName = username;
                     cardToAdd.CardNumber = cardNumber;
                     cardToAdd.CVV = CVV;
-                    cardToAdd.ExpirationDate = parseDate(expirationDate);
+                    try
+                    {
+                        cardToAdd.ExpirationDate = parseDate(expirationDate);
+                    }
+                    catch (Exception)
+                    {
+                        cardToAdd.ExpirationDate = new DateTime();
+                    }
                     context.CreditCards.Add(cardToAdd);
                     context.SaveChanges();
                 }
@@ -188,7 +202,13 @@ namespace VDNA.Controllers
                 using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
                 {
                     conn.Open();
-                    string sql = "INSERT INTO [dbo].CreditCards([UserName], [CardNumber], [CVV], [ExpirationDate]) VALUES('" + username + "', '" + cardNumber + "', '" + CVV + "', '" + parseDateWeak(expirationDate).ToString() + "');";
+                    string date = "";
+                    try
+                    {
+                        date = parseDateWeak(expirationDate).ToString();
+                    }
+                    catch(Exception) { }
+                    string sql = "INSERT INTO [dbo].CreditCards([UserName], [CardNumber], [CVV], [ExpirationDate]) VALUES('" + username + "', '" + cardNumber + "', '" + CVV + "', '" + date + "');";
                     var command = new SqlCommand(sql, conn);
                     command.ExecuteNonQuery();
                     conn.Close();
