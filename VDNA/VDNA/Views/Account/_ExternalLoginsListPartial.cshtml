@@ -17,7 +17,6 @@
     }
     else {
         using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl })) {
-            @Html.AntiForgeryToken()
 
             <h4>Use another service to log in.</h4>
             <div id="socialLoginList">
