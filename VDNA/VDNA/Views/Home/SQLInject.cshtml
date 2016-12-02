@@ -35,7 +35,7 @@
         <th>CVV</th>
         <th>Expiration Date</th>
     </tr>
-    @foreach (var r in HomeController.GetCardsByUser(User.Identity.GetUserName()))
+    @foreach (var r in HomeController.GetCardsByUser(User.Identity.GetUserId()))
     {
         <tr>
             <td>@Html.Raw(r.CardNumber)</td>

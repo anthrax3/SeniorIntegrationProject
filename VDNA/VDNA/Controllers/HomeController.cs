@@ -134,13 +134,13 @@ namespace VDNA.Controllers
             return RedirectToAction("Register", "Account");
         }
 
-        public static List<CreditCard> GetCardsByUser(string user)
+        public static List<CreditCard> GetCardsByUser(string userId)
         {
             List<CreditCard> results;
             using (var context = new ApplicationDbContext())
             {
                 results = (from c in context.CreditCards
-                              where c.UserName.Contains(user)
+                              where c.UserId.Contains(userId)
                               select c).ToList();
             }
             return results;
@@ -176,13 +176,13 @@ namespace VDNA.Controllers
         [ValidateInput(false)]
         public ActionResult SQLIDemo(string cardNumber, string CVV, string expirationDate)
         {
-            var username = User.Identity.GetUserName();
+            var userId = User.Identity.GetUserId();
             if(GetSecurityLevel().Equals("high"))
             {
                 using (var context = new ApplicationDbContext())
                 {
                     CreditCard cardToAdd = new CreditCard();
-                    cardToAdd.UserName = username;
+                    cardToAdd.UserId = userId;
                     cardToAdd.CardNumber = cardNumber;
                     cardToAdd.CVV = CVV;
                     try
@@ -208,7 +208,7 @@ namespace VDNA.Controllers
                         date = parseDateWeak(expirationDate).ToString();
                     }
                     catch(Exception) { }
-                    string sql = "INSERT INTO [dbo].CreditCards([UserName], [CardNumber], [CVV], [ExpirationDate]) VALUES('" + username + "', '" + cardNumber + "', '" + CVV + "', '" + date + "');";
+                    string sql = "INSERT INTO [dbo].CreditCards([UserId], [CardNumber], [CVV], [ExpirationDate]) VALUES('" + userId + "', '" + cardNumber + "', '" + CVV + "', '" + date + "');";
                     var command = new SqlCommand(sql, conn);
                     command.ExecuteNonQuery();
                     conn.Close();

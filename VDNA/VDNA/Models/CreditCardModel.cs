@@ -12,7 +12,7 @@ namespace VDNA.Models
         [Key]
         public int Id { get; set; }
         [StringLength(128)]
-        public string UserName { get; set; }
+        public string UserId { get; set; }
 
         [MinLength(16), MaxLength(16)]
         [Column(TypeName = "CHAR")]
