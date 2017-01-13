@@ -133,7 +133,7 @@ namespace VDNA.Controllers
             UserManager.AddToRole(currentUser.Id, "Admin");
             return RedirectToAction("Register", "Account");
         }
-
+        [NonAction]
         public static List<CreditCard> GetCardsByUser(string userId)
         {
             List<CreditCard> results;
@@ -211,7 +211,6 @@ namespace VDNA.Controllers
                     string sql = "INSERT INTO [dbo].CreditCards([UserId], [CardNumber], [CVV], [ExpirationDate]) VALUES('" + userId + "', '" + cardNumber + "', '" + CVV + "', '" + date + "');";
                     var command = new SqlCommand(sql, conn);
                     command.ExecuteNonQuery();
-                    conn.Close();
                 }
             }
             return RedirectToAction("SQLInject", "Home");
